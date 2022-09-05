@@ -31,7 +31,7 @@ installAcme () {
   ALLOW_INSTALL=false
   ACME_SH_FILE=${ACME_BIN_PATH}/acme.sh
   ACME_SH_NEW_VERSION=$(wget -qO- -t1 -T2 "https://api.github.com/repos/acmesh-official/acme.sh/releases/latest" | grep "tag_name" | head -n 1 | awk -F ":" '{print $2}' | sed 's/\"//g;s/,//g;s/ //g')
-  ACME_SH_ADDRESS=https://mirror.ghproxy.com/https://github.com/acmesh-official/acme.sh/archive/${ACME_SH_NEW_VERSION}.tar.gz
+  ACME_SH_ADDRESS=https://ghproxy.com/https://github.com/acmesh-official/acme.sh/archive/${ACME_SH_NEW_VERSION}.tar.gz
   if [ -z "${ACME_SH_NEW_VERSION}" ]; then
     echo 'unable to get new version number'
     return 0
